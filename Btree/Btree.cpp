@@ -376,7 +376,7 @@ public:
 
 	Btree<Type>* insert(Type key)
 	{
-		cout << "Inserisco la chiave " << key << endl;
+		cout << "Inserimento della chiave " << key << endl;
 		if (root != NULL)
 		{
 			if (!search(key))
@@ -450,7 +450,7 @@ public:
 	{
 		if (root != NULL)
 		{
-			cout << "Tento di cancellare la chiave " << key << endl;
+			cout << "Tentativo di cancellazione della chiave " << key << endl;
 			if (search(key))
 			{
 				delete_nonmin(root, key);
@@ -472,7 +472,7 @@ public:
 		}
 		else
 		{
-			cout << "Btree non esistente" << endl << endl;
+			cout << "Tentativo di cancellazione su Btree non esistente" << endl << endl;
 		}
 		return this;
 	}
@@ -491,8 +491,7 @@ public:
 		}
 		else
 		{
-			cout << "Btree non esistente - valore ritornato " << numeric_limits<Type>::lowest() << endl << endl;
-			return numeric_limits<Type>::lowest();
+			cout << "Btree non esistente " << endl << endl;
 		}
 	}
 };
