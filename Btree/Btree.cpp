@@ -484,15 +484,12 @@ public:
 
 	Type get_min_key()
 	{
-		Node<Type>* min_node = get_node_min_key();
-		if (min_node)
+		if (root)
 		{
+			Node<Type>* min_node = get_node_min_key();
 			return min_node->get_ith_key(0);
 		}
-		else
-		{
-			cout << "Btree non esistente " << endl << endl;
-		}
+		cout << "Btree non esistente" << endl << endl;
 	}
 };
 
