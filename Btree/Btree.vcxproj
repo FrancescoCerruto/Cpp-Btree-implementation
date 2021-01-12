@@ -18,6 +18,11 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Btree.cpp" />
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Node.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -138,14 +143,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="C:\Users\Francesco Cerruto\Desktop\Btree\Btree.cpp" />
-    <ClCompile Include="C:\Users\Francesco Cerruto\Desktop\Btree\Main.cpp" />
-    <ClCompile Include="C:\Users\Francesco Cerruto\Desktop\Btree\Node.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="C:\Users\Francesco Cerruto\Desktop\Btree\UML.cd" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

@@ -15,17 +15,14 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="C:\Users\Francesco Cerruto\Desktop\Btree\Btree.cpp">
-      <Filter>File di origine</Filter>
+    <ClCompile Include="Main.cpp">
+      <Filter>File di risorse</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Francesco Cerruto\Desktop\Btree\Main.cpp">
-      <Filter>File di origine</Filter>
+    <ClCompile Include="Node.cpp">
+      <Filter>File di risorse</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Francesco Cerruto\Desktop\Btree\Node.cpp">
-      <Filter>File di origine</Filter>
+    <ClCompile Include="Btree.cpp">
+      <Filter>File di risorse</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="C:\Users\Francesco Cerruto\Desktop\Btree\UML.cd" />
   </ItemGroup>
 </Project>
