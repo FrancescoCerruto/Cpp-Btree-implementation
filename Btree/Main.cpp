@@ -11,6 +11,8 @@ int main()
 	t->insert('y')->insert('z')->insert('t');
 	t->insert('u')->insert('v');
 
+	cout << "L'altezza del Btree e': " << t->get_height() << endl << endl;
+
 	//inserimenti a catena
 	t->insert('b')->insert('q')->insert('l')->insert('f');
 
@@ -25,6 +27,9 @@ int main()
 	{
 		t->_delete(t->get_min_key());
 	}
+
+	cout << "L'altezza del Btree e': " << t->get_height() << endl << endl;
+
 	delete t;
 
 	t = new Btree<char>(2);
@@ -32,6 +37,9 @@ int main()
 	{
 		t->insert(i);
 	}
+
+	cout << "L'altezza del Btree e': " << t->get_height() << endl << endl;
+
 	t->_delete('d')->insert('d')->_delete('j')->insert('j');
 
 	//svuoto l'albero
@@ -39,6 +47,9 @@ int main()
 	{
 		t->_delete(t->get_min_key());
 	}
+
+	cout << "L'altezza del Btree e': " << t->get_height() << endl << endl;
+
 	delete t;
 
 	return 1;

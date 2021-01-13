@@ -25,4 +25,12 @@
       <Filter>File di risorse</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Node.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="Btree.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+  </ItemGroup>
 </Project>
