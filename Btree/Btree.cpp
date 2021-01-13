@@ -1,7 +1,7 @@
 #include "Btree.h"
 
 template<class Type>
-inline void Btree<Type>::split_child(Node<Type>* x, int index_child)
+ void Btree<Type>::split_child(Node<Type>* x, int index_child)
 {
 	cout << "AZIONE COMPENSATIVA - SPLIT CHILD" << endl;
 	Node<Type>* z = new Node<Type>(t, x);
@@ -34,7 +34,7 @@ inline void Btree<Type>::split_child(Node<Type>* x, int index_child)
 }
 
 template<class Type>
-inline void Btree<Type>::insert_nonfull(Node<Type>* x, Type key)
+ void Btree<Type>::insert_nonfull(Node<Type>* x, Type key)
 {
 	if (x->get_leaf())
 	{
@@ -58,7 +58,7 @@ inline void Btree<Type>::insert_nonfull(Node<Type>* x, Type key)
 }
 
 template<class Type>
-inline void Btree<Type>::inorder(Node<Type>* x)
+ void Btree<Type>::inorder(Node<Type>* x)
 {
 	if (x != NULL)
 	{
@@ -72,7 +72,7 @@ inline void Btree<Type>::inorder(Node<Type>* x)
 }
 
 template<class Type>
-inline void Btree<Type>::preorder(Node<Type>* x)
+ void Btree<Type>::preorder(Node<Type>* x)
 {
 	if (x != NULL)
 	{
@@ -86,7 +86,7 @@ inline void Btree<Type>::preorder(Node<Type>* x)
 }
 
 template<class Type>
-inline void Btree<Type>::postorder(Node<Type>* x)
+ void Btree<Type>::postorder(Node<Type>* x)
 {
 	if (x != NULL)
 	{
@@ -99,7 +99,7 @@ inline void Btree<Type>::postorder(Node<Type>* x)
 }
 
 template<class Type>
-inline void Btree<Type>::BSF_level(Node<Type>* x, int level)
+ void Btree<Type>::BSF_level(Node<Type>* x, int level)
 {
 	if (x == NULL)
 	{
@@ -123,7 +123,7 @@ inline void Btree<Type>::BSF_level(Node<Type>* x, int level)
 }
 
 template<class Type>
-inline void Btree<Type>::BFS()
+ void Btree<Type>::BFS()
 {
 	int height = calculate_height(root);
 	for (int i = 1; i <= height + 1; i++)
@@ -134,7 +134,7 @@ inline void Btree<Type>::BFS()
 }
 
 template<class Type>
-inline int Btree<Type>::calculate_height(Node<Type>* x)
+ int Btree<Type>::calculate_height(Node<Type>* x)
 {
 	if (x == NULL)
 	{
@@ -147,7 +147,7 @@ inline int Btree<Type>::calculate_height(Node<Type>* x)
 }
 
 template<class Type>
-inline bool Btree<Type>::btree_search(Node<Type>* x, Type key)
+ bool Btree<Type>::btree_search(Node<Type>* x, Type key)
 {
 	int i = x->search(key);
 	if (i < x->get_n() && key == x->get_ith_key(i))
@@ -163,7 +163,7 @@ inline bool Btree<Type>::btree_search(Node<Type>* x, Type key)
 }
 
 template<class Type>
-inline void Btree<Type>::concatenate_right(Node<Type>* father, Node<Type>* min_node, Node<Type>* right_brother, int index_z)
+ void Btree<Type>::concatenate_right(Node<Type>* father, Node<Type>* min_node, Node<Type>* right_brother, int index_z)
 {
 	cout << "CONCATENATE RIGHT" << endl;
 	min_node->set_ith_key(t - 1, father->get_ith_key(index_z));
@@ -180,7 +180,7 @@ inline void Btree<Type>::concatenate_right(Node<Type>* father, Node<Type>* min_n
 }
 
 template<class Type>
-inline void Btree<Type>::concatenate_left(Node<Type>* father, Node<Type>* min_node, Node<Type>* left_brother, int index_z)
+ void Btree<Type>::concatenate_left(Node<Type>* father, Node<Type>* min_node, Node<Type>* left_brother, int index_z)
 {
 	cout << "CONCATENATE LEFT" << endl;
 	min_node->shift_key_right(0);
@@ -198,7 +198,7 @@ inline void Btree<Type>::concatenate_left(Node<Type>* father, Node<Type>* min_no
 }
 
 template<class Type>
-inline void Btree<Type>::fusion_right(Node<Type>* father, Node<Type>* min_node, Node<Type>* right_node, int index_z)
+ void Btree<Type>::fusion_right(Node<Type>* father, Node<Type>* min_node, Node<Type>* right_node, int index_z)
 {
 	cout << "FUSION RIGHT" << endl;
 	min_node->set_ith_key(t - 1, father->get_ith_key(index_z));
@@ -221,7 +221,7 @@ inline void Btree<Type>::fusion_right(Node<Type>* father, Node<Type>* min_node, 
 }
 
 template<class Type>
-inline void Btree<Type>::fusion_left(Node<Type>* father, Node<Type>* min_node, Node<Type>* left_brother, int index_z)
+ void Btree<Type>::fusion_left(Node<Type>* father, Node<Type>* min_node, Node<Type>* left_brother, int index_z)
 {
 	cout << "FUSION LEFT" << endl;
 	left_brother->set_ith_key(t - 1, father->get_ith_key(index_z - 1));
@@ -244,7 +244,7 @@ inline void Btree<Type>::fusion_left(Node<Type>* father, Node<Type>* min_node, N
 }
 
 template<class Type>
-inline void Btree<Type>::fix_up(Node<Type>* father, Node<Type>* min_node, int index_z)
+ void Btree<Type>::fix_up(Node<Type>* father, Node<Type>* min_node, int index_z)
 {
 	cout << "AZIONE COMPENSATIVA - FIX UP - ";
 	if (index_z == 0)
@@ -296,7 +296,7 @@ inline void Btree<Type>::fix_up(Node<Type>* father, Node<Type>* min_node, int in
 }
 
 template<class Type>
-inline void Btree<Type>::delete_nonmin(Node<Type>* x, Type key)
+ void Btree<Type>::delete_nonmin(Node<Type>* x, Type key)
 {
 	int i = x->search(key);
 	if (i < x->get_n() && key == x->get_ith_key(i))
@@ -358,7 +358,7 @@ inline void Btree<Type>::delete_nonmin(Node<Type>* x, Type key)
 }
 
 template<class Type>
-inline void Btree<Type>::delete_max(Node<Type>* x, Node<Type>* y, int index)
+ void Btree<Type>::delete_max(Node<Type>* x, Node<Type>* y, int index)
 {
 	if (y->get_leaf())
 	{
@@ -377,7 +377,7 @@ inline void Btree<Type>::delete_max(Node<Type>* x, Node<Type>* y, int index)
 }
 
 template<class Type>
-inline Node<Type>* Btree<Type>::get_node_min_key()
+ Node<Type>* Btree<Type>::get_node_min_key()
 {
 	Node<Type>* iterator = root;
 	if (iterator)
@@ -391,13 +391,13 @@ inline Node<Type>* Btree<Type>::get_node_min_key()
 }
 
 template<class Type>
-inline Btree<Type>::Btree(int minimum_degree) : t(minimum_degree)
+ Btree<Type>::Btree(int minimum_degree) : t(minimum_degree)
 {
 	root = NULL;
 }
 
 template<class Type>
-inline Btree<Type>* Btree<Type>::insert(Type key)
+ Btree<Type>* Btree<Type>::insert(Type key)
 {
 	cout << "Inserimento della chiave " << key << endl;
 	if (root != NULL)
@@ -437,7 +437,7 @@ inline Btree<Type>* Btree<Type>::insert(Type key)
 }
 
 template<class Type>
-inline void Btree<Type>::print()
+ void Btree<Type>::print()
 {
 	if (root)
 	{
@@ -461,19 +461,19 @@ inline void Btree<Type>::print()
 }
 
 template<class Type>
-inline int Btree<Type>::get_height()
+ int Btree<Type>::get_height()
 {
 	return calculate_height(root);
 }
 
 template<class Type>
-inline bool Btree<Type>::search(Type key)
+ bool Btree<Type>::search(Type key)
 {
 	return btree_search(root, key);
 }
 
 template<class Type>
-inline Btree<Type>* Btree<Type>::_delete(Type key)
+ Btree<Type>* Btree<Type>::_delete(Type key)
 {
 	if (root != NULL)
 	{
@@ -505,13 +505,13 @@ inline Btree<Type>* Btree<Type>::_delete(Type key)
 }
 
 template<class Type>
-inline bool Btree<Type>::tree_empty()
+ bool Btree<Type>::tree_empty()
 {
 	return root == NULL;
 }
 
 template<class Type>
-inline Type Btree<Type>::get_min_key()
+ Type Btree<Type>::get_min_key()
 {
 	if (root)
 	{
