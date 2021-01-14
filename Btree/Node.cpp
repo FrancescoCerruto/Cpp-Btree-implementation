@@ -94,6 +94,8 @@ template<class Type>
 	 {
 		 return keys[index];
 	 }
+	 cout << "Indice fuori bound - valore restituito non attendibile" << endl << endl;
+	 return minimum;
 }
 
 template<class Type>
@@ -146,6 +148,8 @@ template<class Type>
 	 {
 		 return children[index];
 	 }
+	 cout << "Indice fuori bound - puntatore restituito non valido" << endl << endl;
+	 return NULL;
  }
 
 template<class Type>

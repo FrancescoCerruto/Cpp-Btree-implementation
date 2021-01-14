@@ -380,12 +380,9 @@ template<class Type>
  Node<Type>* Btree<Type>::get_node_min_key()
 {
 	Node<Type>* iterator = root;
-	if (iterator)
+	while (iterator->get_ith_child(0) != NULL)
 	{
-		while (iterator->get_ith_child(0) != NULL)
-		{
-			iterator = iterator->get_ith_child(0);
-		}
+		iterator = iterator->get_ith_child(0);
 	}
 	return iterator;
 }
@@ -469,7 +466,15 @@ template<class Type>
 template<class Type>
  bool Btree<Type>::search(Type key)
 {
-	return btree_search(root, key);
+	 if (root)
+	 {
+		 return btree_search(root, key);
+	 }
+	 else
+	 {
+		 cout << "Btree non esistente" << endl << endl;
+		 return false;
+	 }
 }
 
 template<class Type>
@@ -517,5 +522,10 @@ template<class Type>
 	{
 		Node<Type>* min_node = get_node_min_key();
 		return min_node->get_ith_key(0);
+	}
+	else
+	{
+		cout << "Btree non esiste - valore ritornato non attendibile" << endl << endl;
+		return numeric_limits<Type>::lowest();
 	}
 }
