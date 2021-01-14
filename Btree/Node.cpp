@@ -70,76 +70,107 @@ template<class Type>
 template<class Type>
  void Node<Type>::add_key(Type key)
 {
-	 int i = n - 1;
-	 while (i > -1 && key < keys[i])
+	 if (n < (2 * t - 1))
 	 {
-		 keys[i + 1] = keys[i];
-		 i--;
+		 int i = n - 1;
+		 while (i > -1 && key < keys[i])
+		 {
+			 keys[i + 1] = keys[i];
+			 i--;
+		 }
+		 keys[i + 1] = key;
+		 n++;
 	 }
-	 keys[i + 1] = key;
-	 n++;
+	 else
+	 {
+		 cout << "Tentativo di inserimento su nodo pieno" << endl << endl << endl;
+	 }
 }
 
 template<class Type>
  Type Node<Type>::get_ith_key(int index)
 {
-	 return keys[index];
+	 if (index > -1 && index < (2 * t - 1))
+	 {
+		 return keys[index];
+	 }
 }
 
 template<class Type>
  void Node<Type>::set_ith_key(int index, Type key)
 {
-	 keys[index] = key;
-}
+	 if (index < (2 * t - 1) && index > -1)
+	 {
+		 keys[index] = key;
+	 }
+ }
 
 template<class Type>
  void Node<Type>::shift_key_right(int index)
 {
-	 for (int j = n - 1; j > index - 1; j--)
+	 if (index > -1)
 	 {
-		 keys[j + 1] = keys[j];
+		 for (int j = n - 1; j > index - 1; j--)
+		 {
+			 keys[j + 1] = keys[j];
+		 }
 	 }
 }
 
 template<class Type>
  void Node<Type>::shift_key_left(int index)
 {
-	 for (int j = index; j < n - 1; j++)
+	 if (index > -1)
 	 {
-		 keys[j] = keys[j + 1];
+		 for (int j = index; j < n - 1; j++)
+		 {
+			 keys[j] = keys[j + 1];
+		 }
+		 keys[n - 1] = minimum;
 	 }
-	 keys[n - 1] = minimum;
 }
 
 template<class Type>
  void Node<Type>::add_ith_node(int index, Node<Type>* child)
 {
-	 children[index] = child;
-}
+	 if (index < (2 * t) && index > -1)
+	 {
+		 children[index] = child;
+	 }
+ }
 
 template<class Type>
  Node<Type>* Node<Type>::get_ith_child(int index)
 {
-	 return children[index];
-}
+	 if (index<(2 * t) && index>-1)
+	 {
+		 return children[index];
+	 }
+ }
 
 template<class Type>
  void Node<Type>::shift_child_right(int index)
 {
-	 for (int j = n; j > index - 1; j--)
+	 if (index > -1)
 	 {
-		 children[j + 1] = children[j];
+		 for (int j = n; j > index - 1; j--)
+		 {
+			 children[j + 1] = children[j];
+		 }
 	 }
 }
 
 template<class Type>
  void Node<Type>::shift_child_left(int index)
 {
-	 for (int j = index; j < n; j++)
+	 if (index > -1)
 	 {
-		 children[j] = children[j + 1];
-	 }
-	 children[n] = NULL;
+		 for (int j = index; j < n; j++)
+		 {
+			 children[j] = children[j + 1];
+		 }
+		 children[n] = NULL;
+	 }	 
 }
 
 template<class Type>

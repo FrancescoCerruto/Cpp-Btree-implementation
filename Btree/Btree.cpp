@@ -518,5 +518,4 @@ template<class Type>
 		Node<Type>* min_node = get_node_min_key();
 		return min_node->get_ith_key(0);
 	}
-	cout << "Btree non esistente" << endl << endl;
 }

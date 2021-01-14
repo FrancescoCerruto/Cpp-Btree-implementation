@@ -47,7 +47,6 @@ int main()
 	{
 		t->_delete(t->get_min_key());
 	}
-
 	cout << "L'altezza del Btree e': " << t->get_height() << endl << endl;
 
 	delete t;
